@@ -3,17 +3,17 @@ import play_icon from "../assets/play_icon.svg"
 import pause_icon from "../assets/pause_icon.svg"
 
 export default function ActualMusic(props) {
-  const { currentCover, musicLenght, musicName, musicArtist } = props.music;
+  const { cover, lenght, name, artist } = props.music;
   const [musicPlayed, setMusicPlayed] = useState(0);
   const [playing, setPlaying] = useState(false);
 
   return (
     <div>
-      <img src={currentCover} className="currentCover" />
+      <img src={cover} className="currentCover" />
       <div>
         <Icon playing={playing} setPlayingState={setPlaying} />
-        <MusicBar playing={playing} musicLenght={musicLenght} musicPlayed={musicPlayed} setMusicPlayed={setMusicPlayed} />
-        <MusicDetails musicName={musicName} musicArtist={musicArtist} />
+        <MusicBar playing={playing} lenght={lenght} musicPlayed={musicPlayed} setMusicPlayed={setMusicPlayed} />
+        <MusicDetails name={name} artist={artist} />
       </div>
     </div>
   )
@@ -26,7 +26,7 @@ function Icon(props) {
 }
 
 function MusicBar(props) {
-  const { playing, musicLenght, musicPlayed, setMusicPlayed } = props;
+  const { playing, lenght, musicPlayed, setMusicPlayed } = props;
   const documentStyle = document.documentElement.style;
 
   function convertSecondsIntoMinutes(time) {
@@ -42,7 +42,7 @@ function MusicBar(props) {
   setTimeout(() => {
     if (playing) {
       documentStyle.setProperty(
-        "--musicPlayed", percentageMusicPlayed(musicLenght, musicPlayed)
+        "--musicPlayed", percentageMusicPlayed(lenght, musicPlayed)
       )
 
       setMusicPlayed(musicPlayed + 1)
@@ -53,7 +53,7 @@ function MusicBar(props) {
     <div className="musicBar">
       <div className="musicLenght">
         <span>0:00</span>
-        <span>{convertSecondsIntoMinutes(musicLenght)}</span>
+        <span>{convertSecondsIntoMinutes(lenght)}</span>
       </div>
       <div className="bar"></div>
     </div>
@@ -61,13 +61,13 @@ function MusicBar(props) {
 }
 
 function MusicDetails(props) {
-  const { musicName, musicArtist } = props;
+  const { name, artist } = props;
 
   return (
     <div className="musicDetails">
-      <h2 className="musicName">{musicName}</h2>
+      <h2 className="musicName">{name}</h2>
       <small>by</small>
-      <h4 className="musicArtist">{musicArtist}</h4>
+      <h4 className="musicArtist">{artist}</h4>
     </div>
   )
 }

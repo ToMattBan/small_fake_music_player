@@ -71,3 +71,31 @@ code {
     font-weight: normal;
   }
 }
+
+.nextMusicsList {
+  margin: 64px 32px 0;
+  text-align: left;
+
+  .nextMusic {
+    display: flex;
+    margin: 16px 0;
+
+    img {
+      width: 30%;
+      aspect-ratio: 1/1;
+    }
+
+    >div {
+      width: 70%;
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h3 {
+        margin: 0
+      }
+    }
+
+  }
+}
