@@ -1,4 +1,5 @@
 {
+  "homepage": "https://tomattban.github.io/small_fake_music_player/",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -12,11 +13,15 @@
     "sass": "^1.54.4",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npx build && npx gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
