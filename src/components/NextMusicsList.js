@@ -65,8 +65,9 @@ function NextMusic(props) {
     <div className='nextMusic' onClick={() => triggerChangeMusic(music)}>
       <img src={music.cover} />
       <div>
-        <div>
+        <div className='musicDetails'>
           <h3>{music.name}</h3>
+          <small className="justDesktop separator">-</small>
           <small>{music.artist}</small>
         </div>
         <small>{convertSecondsIntoMinutes(music.lenght)}</small>

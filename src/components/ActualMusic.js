@@ -8,11 +8,13 @@ export default function ActualMusic(props) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div>
+    <div className="actualMusic">
       <img src={cover} className="currentCover" />
-      <div>
-        <Icon playing={playing} setPlayingState={setPlaying} />
-        <MusicBar playing={playing} lenght={lenght} musicPlayed={musicPlayed} setMusicPlayed={setMusicPlayed} />
+      <div className="musicController">
+        <div>
+          <Icon playing={playing} setPlayingState={setPlaying} />
+          <MusicBar playing={playing} lenght={lenght} musicPlayed={musicPlayed} setMusicPlayed={setMusicPlayed} />
+        </div>
         <MusicDetails name={name} artist={artist} />
       </div>
     </div>
@@ -52,7 +54,7 @@ function MusicBar(props) {
   return (
     <div className="musicBar">
       <div className="musicLenght">
-        <span>0:00</span>
+        <span className="justMobile">0:00</span>
         <span>{convertSecondsIntoMinutes(lenght)}</span>
       </div>
       <div className="bar"></div>
@@ -66,7 +68,8 @@ function MusicDetails(props) {
   return (
     <div className="musicDetails">
       <h2 className="musicName">{name}</h2>
-      <small>by</small>
+      <small className="justMobile">by</small>
+      <small className="justDesktop separator">-</small>
       <h4 className="musicArtist">{artist}</h4>
     </div>
   )
