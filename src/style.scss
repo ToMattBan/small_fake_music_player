@@ -60,9 +60,9 @@ code {
 
     .musicBar {
       margin: 0 32px;
-      width: 100%;
-
+      
       @media (min-width: 901px) {
+        width: 100%;
         display: flex;
         flex-direction: row-reverse;
       }
